@@ -26,34 +26,23 @@ class bbpPress_Debug_Bar extends Debug_Bar_Panel {
 		$test  = (int) ( $forum . $topic . $reply );
 
 		if ( ! empty( $test ) ) {
-			echo '<h2><span>';
-			echo  __( 'General:', 'bbp-debug-bar' );
-			echo '</span></h2>';
-
-			echo '<br/>';
-
-			echo '<p style="clear: both;">';
 
 
 			if ( ! empty( $forum ) )
-				echo sprintf( __( "Forum ID: %d", "bbp-debug-bar" ), $forum ) . '</br>';
+				echo '<h2>' . sprintf( __( "<span>Forum ID:</span>%d", "bbp-debug-bar" ), $forum ) . '</h2>';
 
 			if ( ! empty( $topic ) )
-				echo sprintf( __( "Topic ID: %d", "bbp-debug-bar" ), $topic ) . '</br>';
+				echo '<h2>' . sprintf( __( "<span>Topic ID:</span>%d", "bbp-debug-bar" ), $topic ) . '</h2>';
 
 			if ( ! empty( $reply ) )
-				echo sprintf( __( "Reply ID: %d", "bbp-debug-bar" ), $reply ) . '</br>';
-
-			echo '</p>';
-
-			echo '<br/>';
+				echo '<h2>' . sprintf( __( "<span>Reply ID:</span>%d", "bbp-debug-bar" ), $reply ) . '</h2>';
 		}
 
-		echo '<h2><span>';
-		echo  __( 'Loaded templates:', 'bbp-debug-bar' );
-		echo '</span></h2>';
-
 		echo '<br/>';
+
+		echo '<h3 style="float: none;clear: both;font-family: georgia,times,serif;font-size: 22px;margin: 15px 10px 15px 0!important;">';
+		echo  __( 'Loaded templates:', 'bbp-debug-bar' );
+		echo '</h3>';
 
 		echo '<ol style="clear: both; list-style: decimal;">';
 		foreach ( $this->templates as $template ) {
