@@ -55,7 +55,7 @@ class bbpPress_Debug_Bar extends Debug_Bar_Panel {
 	/* Helper methods */
 
 	public function log_template_part( $templates, $slug, $name ) {
-		$this->templates[] = $templates[0];
+		$this->templates[] = bbp_locate_template( $templates[0], false );
 		return $templates;
 	}
 
