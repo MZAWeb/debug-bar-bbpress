@@ -15,7 +15,12 @@ class bbpPress_Debug_Bar extends Debug_Bar_Panel {
 	}
 
 	public function prerender() {
-		$this->set_visible( true );
+		$vars = array_filter( $this->get_vars() );
+
+		if ( empty( $vars ) && empty( $this->templates ) )
+			$this->set_visible( false );
+		else
+			$this->set_visible( true );
 	}
 
 	public function render() {
