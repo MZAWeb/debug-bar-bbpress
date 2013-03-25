@@ -20,23 +20,12 @@ class bbpPress_Debug_Bar extends Debug_Bar_Panel {
 
 	public function render() {
 
-		$forum = bbp_get_forum_id();
-		$topic = bbp_get_topic_id();
-		$reply = bbp_get_reply_id();
-		$test  = (int) ( $forum . $topic . $reply );
-
-		if ( ! empty( $test ) ) {
-
-
-			if ( ! empty( $forum ) )
-				echo '<h2>' . sprintf( __( "<span>Forum ID:</span>%d", "bbp-debug-bar" ), $forum ) . '</h2>';
-
-			if ( ! empty( $topic ) )
-				echo '<h2>' . sprintf( __( "<span>Topic ID:</span>%d", "bbp-debug-bar" ), $topic ) . '</h2>';
-
-			if ( ! empty( $reply ) )
-				echo '<h2>' . sprintf( __( "<span>Reply ID:</span>%d", "bbp-debug-bar" ), $reply ) . '</h2>';
+		$ids = $this->get_vars();
+		foreach ( $ids as $title => $value ) {
+			if ( ! empty( $value ) )
+				echo '<h2>' . sprintf( "<span>%s:</span>%d", $title, $value ) . '</h2>';
 		}
+
 
 		echo '<br/>';
 
@@ -50,6 +39,14 @@ class bbpPress_Debug_Bar extends Debug_Bar_Panel {
 		}
 		echo '</ol>';
 
+	}
+
+	private function get_vars() {
+		return apply_filters( 'bbp-debug-bar-vars', array(
+			__( 'Forum ID', 'bbp-debug-bar' ) => bbp_get_forum_id(),
+			__( 'Topic ID', 'bbp-debug-bar' ) => bbp_get_topic_id(),
+			__( 'Reply ID', 'bbp-debug-bar' ) => bbp_get_reply_id(),
+		) );
 	}
 
 	/* Helper methods */
