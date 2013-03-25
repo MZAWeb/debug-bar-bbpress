@@ -4,7 +4,7 @@ Plugin Name: Debug Bar bbPress
 Plugin URI:
 Description: Helps debug bbPress using the Debug Bar
 Author: Daniel Dvorkin
-Version: 0.1.
+Version: 0.2
 Author URI: http://danieldvork.in
 */
 
