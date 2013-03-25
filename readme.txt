@@ -25,7 +25,7 @@ If you have a cool idea about data I should add, open a ticket in the support fo
 
 == Changelog ==
 
-= 0.1.1 =
+= 0.2 =
 * Show full path to template instead of just name,so it's easier to spot overrides.
 * Introduce filter 'bbp-debug-bar-vars' to add vars at the top (like Forum or Topic ID)
 * Hide the panels if there's nothing to show, like outside bbp pages. (Thanks JJJ)
