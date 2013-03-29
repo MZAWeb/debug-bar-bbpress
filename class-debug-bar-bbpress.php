@@ -47,6 +47,10 @@ class bbpPress_Debug_Bar extends Debug_Bar_Panel {
 	}
 
 	private function get_vars() {
+
+		if ( ! function_exists( 'bbpress' ) )
+			return array();
+
 		return apply_filters( 'bbp-debug-bar-vars', array(
 			__( 'Forum ID', 'bbp-debug-bar' ) => bbp_get_forum_id(),
 			__( 'Topic ID', 'bbp-debug-bar' ) => bbp_get_topic_id(),
