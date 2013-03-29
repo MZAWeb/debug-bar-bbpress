@@ -3,7 +3,7 @@ Contributors: MZAWeb
 Tags: debug bar bbpress
 Requires at least: 3.1
 Tested up to: 3.5.1
-Stable tag: 0.2
+Stable tag: 0.3
 
 Displays information about the bbPress runtime in the Debug Bar.
 
@@ -25,10 +25,13 @@ If you have a cool idea about data I should add, open a ticket in the support fo
 
 == Changelog ==
 
+= 0.3 =
+* Don't load the panel if bbPress is not active (Thanks jjj)
+
 = 0.2 =
 * Show full path to template instead of just name,so it's easier to spot overrides.
 * Introduce filter 'bbp-debug-bar-vars' to add vars at the top (like Forum or Topic ID)
-* Hide the panels if there's nothing to show, like outside bbp pages. (Thanks JJJ)
+* Hide the panels if there's nothing to show, like outside bbp pages. (Thanks jjj)
 
 = 0.1 =
 
