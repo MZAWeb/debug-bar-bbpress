@@ -27,6 +27,8 @@ If you have a cool idea about data I should add, open a ticket in the support fo
 
 = 0.4 =
 * Remove the "Loaded templates" header if there's no template to show
+* Added bbp-debug-bar-before-panel action
+* Added bbp-debug-bar-after-panel action
 
 = 0.3 =
 * Don't load the panel if bbPress is not active (Thanks jjj)

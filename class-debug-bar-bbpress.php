@@ -25,6 +25,8 @@ class bbpPress_Debug_Bar extends Debug_Bar_Panel {
 
 	public function render() {
 
+		do_action( 'bbp-debug-bar-before-panel' );
+
 		$ids = $this->get_vars();
 		foreach ( $ids as $title => $value ) {
 			if ( ! empty( $value ) )
@@ -45,6 +47,8 @@ class bbpPress_Debug_Bar extends Debug_Bar_Panel {
 			echo sprintf( '<li style="margin-left: 20px;"><p>%s</p></li>', esc_html( $template ) );
 		}
 		echo '</ol>';
+
+		do_action( 'bbp-debug-bar-after-panel' );
 
 	}
 
