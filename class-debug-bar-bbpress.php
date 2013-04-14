@@ -12,6 +12,12 @@ class bbpPress_Debug_Bar extends Debug_Bar_Panel {
 		$this->title( __( 'bbPress', 'bbp-debug-bar' ) );
 
 		add_filter( 'bbp_get_template_part', array( $this, 'log_template_part' ), 1000, 3 );
+
+		/* Panels */
+
+		add_action( 'bbp-debug-bar-panels', array( $this, 'show_vars'      ),  5 );
+		add_action( 'bbp-debug-bar-panels', array( $this, 'show_templates' ), 10 );
+
 	}
 
 	public function prerender() {
@@ -27,16 +33,23 @@ class bbpPress_Debug_Bar extends Debug_Bar_Panel {
 
 		do_action( 'bbp-debug-bar-before-panel' );
 
+		do_action( 'bbp-debug-bar-panels' );
+
+		do_action( 'bbp-debug-bar-after-panel' );
+
+	}
+
+	public function show_vars() {
 		$ids = $this->get_vars();
 		foreach ( $ids as $title => $value ) {
 			if ( ! empty( $value ) )
 				echo '<h2>' . sprintf( "<span>%s:</span>%d", $title, $value ) . '</h2>';
 		}
+	}
 
+	public function show_templates() {
 		if ( empty( $this->templates ) )
 			return;
-
-		echo '<br/>';
 
 		echo '<h3 style="float: none;clear: both;font-family: georgia,times,serif;font-size: 22px;margin: 15px 10px 15px 0!important;">';
 		echo  __( 'Loaded templates:', 'bbp-debug-bar' );
@@ -47,9 +60,6 @@ class bbpPress_Debug_Bar extends Debug_Bar_Panel {
 			echo sprintf( '<li style="margin-left: 20px;"><p>%s</p></li>', esc_html( $template ) );
 		}
 		echo '</ol>';
-
-		do_action( 'bbp-debug-bar-after-panel' );
-
 	}
 
 	private function get_vars() {
