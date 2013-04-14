@@ -31,6 +31,8 @@ class bbpPress_Debug_Bar extends Debug_Bar_Panel {
 				echo '<h2>' . sprintf( "<span>%s:</span>%d", $title, $value ) . '</h2>';
 		}
 
+		if ( empty( $this->templates ) )
+			return;
 
 		echo '<br/>';
 
